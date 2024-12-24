@@ -1,4 +1,4 @@
-import { listProps } from "./taskList";
+import { listProps } from "../taskList";
 import { updateSidebar } from "./sidebar";
 
 
@@ -7,11 +7,13 @@ const listMenuBg = document.getElementById('bg-disabled');
 
 const listNameInput = document.getElementById('list-name-input');
 
-document.getElementById('add-list-popup-close').addEventListener('click', () => {
+const closePopup = () => {
     listMenu.classList.add('hidden');
     listMenuBg.classList.add('hidden');
     listNameInput.value = '';
-});
+}
+
+document.getElementById('add-list-popup-close').addEventListener('click', closePopup);
 
 const form = document.getElementById('create-list-form');
 form.addEventListener('submit', (e) => {
@@ -28,6 +30,11 @@ form.addEventListener('submit', (e) => {
 const createListMenu = () => {
     listMenu.classList.remove('hidden');
     listMenuBg.classList.remove('hidden');
+    document.onkeydown = (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            closePopup();
+        }
+    };
 };
 
 export default createListMenu;

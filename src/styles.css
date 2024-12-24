@@ -139,3 +139,53 @@ input[type="text"] {
 .hidden {
     display: none !important;
 }
+
+.main {
+    padding: 40px;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+.task {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.task h3, .task p {
+    margin: 0px;
+}
+.task h3::selection, .task p::selection {
+    background-color: transparent;
+}
+.task p {
+    color: #797979;
+}
+.task-bubble {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(200, 200, 200);
+    margin-right: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.task:hover {
+    background-color: rgb(249, 249, 249);
+    cursor: default;
+}
+.task-bubble-fill {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: transparent;
+}
+.task-bubble:hover .task-bubble-fill {
+    background-color: rgba(244, 172, 214, 0.5);
+}
+.task.completed .task-bubble-fill {
+    background-color: rgb(244, 172, 214);
+}
