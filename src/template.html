@@ -6,6 +6,26 @@
     <title>✅ To Do</title>
 </head>
 <body>
-    <h1>Todo</h1>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Todo List</h1>
+            <ul id="lists">
+                
+            </ul>
+        </div>
+        <div class="main"></div>
+    </div>
+    <div id="bg-disabled" class="hidden"></div>
+    <div id="add-list-popup" class="hidden">
+        <h1>Create List</h1>
+        <form name="create-list-form" id="create-list-form">
+            <label for="list-name-input">List Name</label>
+            <input type="text" id="list-name-input" name="list-name-input" placeholder="Chem 130" required>
+            <div class="form-actions">
+                <button type="button" id="add-list-popup-close">Cancel</button>
+                <button type="submit" id="add-list-popup-submit">Create</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

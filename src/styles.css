@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 360px auto;
+    height: 100%;
+}
+
+.sidebar {
+    padding: 20px;
+    padding-top: 40px;
+    background-color: rgb(255, 241, 243);
+    overflow-y: scroll;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+#lists {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    margin-top: 20px;
+}
+#lists > li {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.task-list-item {
+    all: unset;
+    background-color: rgb(251, 226, 236);
+    border: none;
+    padding: 5px;
+    padding-left: 30px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 40px;
+    display: block;
+    width: calc(100% - 40px)
+}
+.task-list-item:hover {
+    background-color: rgb(241, 211, 223);
+}
+.task-list-item.selected {
+    background-color: rgb(241, 203, 216);
+}
+.task-list-item.selected:hover {
+    background-color: rgb(231, 191, 205);
+}
+
+.task-list-item h3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.task-list-item h3::selection {
+    background-color: transparent;
+}
+
+.main {
+    overflow-y: scroll;
+}
+
+h1 {
+    font-family: 'Playfair Display', 'Cambria', serif;
+    font-weight: 700;
+    margin: 0px;
+}
+
+#bg-disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#add-list-popup {
+    display: block;
+    position: fixed;
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    top: calc(50% - 125px);
+    left: calc(50% - 250px);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+form label {
+    display: block;
+    margin: 5px 0px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+}
+.form-actions button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+}
+#add-list-popup-close {
+    background-color: rgb(226, 226, 226);
+}
+#add-list-popup-submit {
+    background-color: rgb(244, 172, 214);
+}
+
+.hidden {
+    display: none !important;
+}
