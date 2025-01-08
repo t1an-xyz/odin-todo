@@ -1,6 +1,8 @@
 import { listProps } from "../taskList";
 import Task from "./task";
 
+import NewTaskBtn from "./newTaskBtn";
+
 const container = document.querySelector('.main');
 
 const heading = document.createElement('h1');
@@ -9,6 +11,7 @@ container.appendChild(heading);
 const taskList = document.createElement('div');
 taskList.className = 'task-list';
 container.appendChild(taskList);
+container.appendChild(NewTaskBtn());
 
 const renderTaskList = () => {
     taskList.innerHTML = '';

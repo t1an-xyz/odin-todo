@@ -10,6 +10,7 @@ export default class Task {
     }
 
     printDate() {
+        if (!this.dueDate) return 'No due date';
         return moment(this.dueDate).format('M/D/YYYY');
     }
 }

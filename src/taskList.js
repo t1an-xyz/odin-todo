@@ -1,12 +1,16 @@
+import Task from "./task";
+
 export default class TaskList {
     constructor(id, title) {
         this.id = id;
         this.title = title;
         this.tasks = {};
+        this.nextId = 1;
     }
 
-    addTask(task) {
-        this.tasks[task.id] = task;
+    addTask(title, description, dueDate, priority) {
+        this.tasks[this.nextId++] = new Task(nextId, title, description, dueDate, priority);
+        return this.nextId - 1;
     }
 
     removeTask(taskId) {
@@ -17,8 +21,8 @@ export default class TaskList {
         return this.tasks[taskId];
     }
 
-    editTask(taskId, newTask) {
-        this.tasks[taskId] = newTask;
+    editTask(taskId, title, description, dueDate, priority) {
+        this.tasks[taskId] = new Task(taskId, title, description, dueDate, priority);
     }
 }
 
