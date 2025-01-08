@@ -1,3 +1,5 @@
+import { renderTaskDetails } from "./taskDetails";
+
 export default (task) => {
     const taskDiv = document.createElement('div');
     taskDiv.className = 'task';
@@ -19,5 +21,9 @@ export default (task) => {
         taskDate.textContent = task.printDate();
         taskContent.appendChild(taskDate);
     }
+    taskDiv.addEventListener('click', () => {
+        renderTaskDetails(task);
+    });
+
     return taskDiv;
 };

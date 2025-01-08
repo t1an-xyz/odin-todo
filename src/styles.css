@@ -15,8 +15,8 @@ html, body {
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 360px auto;
+    display: flex;
+    flex-direction: row;
     height: 100%;
 }
 
@@ -26,6 +26,7 @@ html, body {
     background-color: rgb(255, 241, 243);
     overflow-y: scroll;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    flex: 0 0 360px;
 }
 
 #lists {
@@ -75,6 +76,7 @@ html, body {
 
 .main {
     overflow-y: scroll;
+    flex: 1;
 }
 
 h1 {
@@ -188,4 +190,21 @@ input[type="text"] {
 }
 .task.completed .task-bubble-fill {
     background-color: rgb(244, 172, 214);
+}
+
+#task-details {
+    flex: 0;
+    flex-basis: 0px;
+    transition: all 1s;
+    z-index: 1;
+    border-radius: 15px 0px 0px 15px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 40px 0px;
+}
+
+#task-details.expanded {
+    flex-basis: 480px;
+    padding: 40px 40px;
 }
