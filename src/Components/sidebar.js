@@ -1,6 +1,7 @@
 import { listProps } from "../taskList";
 import createListMenu from "./addListPopup";
 import renderTaskList from "./taskListView";
+import { closeSidebar } from "./taskDetails";
 
 const sidebar = document.getElementById('lists');
 
@@ -18,6 +19,7 @@ const updateSidebar = () => {
         list.appendChild(listTitle);
         list.addEventListener('click', () => {
             listProps.currentList = taskList.id;
+            closeSidebar();
             updateSidebar();
             renderTaskList();
         });

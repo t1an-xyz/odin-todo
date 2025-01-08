@@ -93,4 +93,10 @@ const newTask = () => {
     descriptionInput.value = '';
 }
 
-export { renderTaskDetails, newTask };
+const closeSidebar = () => {
+    sidebar.innerHTML = '';
+    sidebar.classList.remove('expanded');
+    sidebarOpen = false;
+}
+
+export { renderTaskDetails, newTask, closeSidebar };
