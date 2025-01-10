@@ -18,7 +18,10 @@ const updateSidebar = () => {
         listTitle.textContent = taskList.title;
         list.appendChild(listTitle);
         list.addEventListener('click', () => {
-            listProps.currentList = taskList.id;
+            const listItems = Array.from(sidebar.getElementsByTagName('li'));
+            const index = listItems.indexOf(row);
+            listProps.currentList = index;
+            console.log(`Clicked list item index: ${index}`);
             closeSidebar();
             updateSidebar();
             renderTaskList();

@@ -1,8 +1,7 @@
 import Task from "./task";
 
 export default class TaskList {
-    constructor(id, title) {
-        this.id = id;
+    constructor(title) {
         this.title = title;
         this.tasks = {};
         this.nextId = 1;
@@ -30,17 +29,15 @@ export default class TaskList {
     }
 }
 
-let nextId = 1;
-
 let listProps = {
     currentList: 0,
-    taskLists: [new TaskList(0, 'My List')],
+    taskLists: [],
     removeList: (listId) => {
         listProps.taskLists = listProps.taskLists.filter(list => list.id !== listId);
         localStorage.setItem('listProps', JSON.stringify(listProps));
     },
     addList: (listName) => {
-        listProps.taskLists.push(new TaskList(nextId++, listName));
+        listProps.taskLists.push(new TaskList(listName));
         localStorage.setItem('listProps', JSON.stringify(listProps));
     }
 }

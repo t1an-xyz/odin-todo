@@ -12,8 +12,8 @@ export default (task, taskList) => {
     `
     taskDiv.querySelector('.task-bubble').addEventListener('click', () => {
         taskDiv.classList.toggle('completed');
+        taskList.removeTask(task.id);
         setTimeout(() => {
-            taskList.removeTask(task.id);
             closeSidebar();
             renderTaskList();
         }, 1000);
