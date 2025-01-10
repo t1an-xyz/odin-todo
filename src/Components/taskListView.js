@@ -17,7 +17,7 @@ const renderTaskList = () => {
     taskList.innerHTML = '';
     for (let key in listProps.taskLists[listProps.currentList].tasks) {
         const task = listProps.taskLists[listProps.currentList].tasks[key];
-        const taskDiv = Task(task);
+        const taskDiv = Task(task, listProps.taskLists[listProps.currentList]);
         taskList.appendChild(taskDiv);
     }
 }

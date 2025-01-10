@@ -9,7 +9,8 @@ export default class TaskList {
     }
 
     addTask(title, description, dueDate, priority) {
-        this.tasks[this.nextId++] = new Task(nextId, title, description, dueDate, priority);
+        this.tasks[this.nextId] = new Task(this.nextId, title, description, dueDate, priority);
+        this.nextId++;
         return this.nextId - 1;
     }
 
