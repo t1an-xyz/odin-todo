@@ -9,8 +9,12 @@ export default (task) => {
         </div>
         <div class="task-content"></div>
     `
+    if (task.completed) {
+        taskDiv.classList.add('completed');
+    }
     taskDiv.querySelector('.task-bubble').addEventListener('click', () => {
         taskDiv.classList.toggle('completed');
+        task.completed = !task.completed;
     });
     const taskContent = taskDiv.querySelector('.task-content');
     const taskTitle = document.createElement('h3');
