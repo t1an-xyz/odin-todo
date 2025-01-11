@@ -33,8 +33,11 @@ let listProps = {
     currentList: 0,
     taskLists: [],
     removeList: (listId) => {
-        listProps.taskLists = listProps.taskLists.filter(list => list.id !== listId);
+        listProps.taskLists.splice(listId, 1);
         localStorage.setItem('listProps', JSON.stringify(listProps));
+        if (listProps.currentList >= listProps.taskLists.length) {
+            listProps.currentList = 0;
+        }
     },
     addList: (listName) => {
         listProps.taskLists.push(new TaskList(listName));

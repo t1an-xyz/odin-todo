@@ -16,12 +16,25 @@ const updateSidebar = () => {
         }
         const listTitle = document.createElement('h3');
         listTitle.textContent = taskList.title;
+        const deleteBtn = document.createElement('div');
+        deleteBtn.innerHTML = '<span class="iconify" data-icon="mdi-delete"></span>';
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('delete');
+            if (confirm('Are you sure you want to delete this list?')) {
+                const listItems = Array.from(sidebar.getElementsByTagName('li'));
+                const index = listItems.indexOf(row);
+                listProps.removeList(index);
+                updateSidebar();
+                renderTaskList();
+            }
+        });
         list.appendChild(listTitle);
+        list.appendChild(deleteBtn);
         list.addEventListener('click', () => {
             const listItems = Array.from(sidebar.getElementsByTagName('li'));
             const index = listItems.indexOf(row);
             listProps.currentList = index;
-            console.log(`Clicked list item index: ${index}`);
             closeSidebar();
             updateSidebar();
             renderTaskList();

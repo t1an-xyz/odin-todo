@@ -11,7 +11,8 @@ container.appendChild(heading);
 const taskList = document.createElement('div');
 taskList.className = 'task-list';
 container.appendChild(taskList);
-container.appendChild(NewTaskBtn());
+
+const newTaskBtn = NewTaskBtn();
 
 const renderTaskList = () => {
     taskList.innerHTML = '';
@@ -23,6 +24,16 @@ const renderTaskList = () => {
 }
 
 export default () => {
-    heading.textContent = listProps.taskLists[listProps.currentList].title;
-    renderTaskList();
+    newTaskBtn.remove();
+    if (listProps.taskLists.length === 0) {
+        heading.textContent = '';
+        const message = document.createElement('p');
+        message.textContent = 'You have no task lists.';
+        taskList.appendChild(message);
+    }
+    else {
+        heading.textContent = listProps.taskLists[listProps.currentList].title;
+        renderTaskList();
+        container.appendChild(newTaskBtn);
+    }
 }
